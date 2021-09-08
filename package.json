@@ -12,7 +12,9 @@
     },
     "dependencies": {
         "axios": "^0.21.4",
+        "nanoid": "^3.1.25",
         "preact": "^10.5.14",
+        "react-hook-form": "^7.15.1",
         "socket.io-client": "^4.2.0",
         "wouter": "^2.7.4"
     },

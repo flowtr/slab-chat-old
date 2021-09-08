@@ -15,9 +15,11 @@ specifiers:
   eslint-plugin-prettier: ^4.0.0
   husky: ^7.0.2
   jest: ^27.1.0
+  nanoid: ^3.1.25
   postcss: ^8.3.6
   preact: ^10.5.14
   prettier: ^2.3.2
+  react-hook-form: ^7.15.1
   socket.io-client: ^4.2.0
   tailwindcss: ^2.2.11
   ts-jest: ^27.0.5
@@ -27,7 +29,9 @@ specifiers:
 
 dependencies:
   axios: 0.21.4
+  nanoid: 3.1.25
   preact: 10.5.14
+  react-hook-form: 7.15.1
   socket.io-client: 4.2.0
   wouter: 2.7.4
 
@@ -3446,7 +3450,6 @@ packages:
     resolution: {integrity: sha512-rdwtIXaXCLFAQbnfqDRnI6jaRHp9fTcYBjtFKE8eezcZ7LuLjhUaQGNeMXf1HmRoCH32CLz6XwX0TtxEOS/A3Q==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
-    dev: true
 
   /natural-compare/1.4.0:
     resolution: {integrity: sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=}
@@ -3822,6 +3825,12 @@ packages:
     resolution: {integrity: sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==}
     engines: {node: '>=10'}
     dev: true
+
+  /react-hook-form/7.15.1:
+    resolution: {integrity: sha512-+f4T2dXWE9mJFq+b4J91yQ7cTD/2974O8J2TMGIgVjuz+fb3DdT+8vPx7SHzoCE0ZanfZ95mL0Fan7zxdeGSNA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17
+    dev: false
 
   /react-is/17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
