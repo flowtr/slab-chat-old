@@ -1,19 +1,12 @@
-import express from "express";
-import http from "http";
-import SocketIO from "socket.io";
-import cors from "cors";
-import { logger } from "./logger";
+import { App } from "@tinyhttp/app";
+import { cors } from "@tinyhttp/cors";
+import { logger } from "./logger.js";
+import { logger as loggerMiddleware } from "@tinyhttp/logger";
+import { json } from "milliparsec";
+const app = new App();
+app.use(cors()).use(loggerMiddleware()).use(json());
 
-const app = express();
-app.use(cors());
-const server = http.createServer(app);
-const io = new SocketIO.Server(server);
-
-io.on("connection", () => {
-    logger.info("A client connected");
-});
-
-const port = process.env.PORT ?? 8080;
-server.listen(port, () => {
-    console.log(`Listening on :${port}`);
+const port = parseInt(process.env.PORT ?? "8080");
+app.listen(port, () => {
+  logger.info(`Listening on :${port}`);
 });
