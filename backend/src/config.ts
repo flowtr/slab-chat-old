@@ -1,4 +1,6 @@
 import { logger } from "./logger.js";
+import dotenv from "dotenv";
+dotenv.config();
 
 const loadEnv = (key: string) => {
   const envVar = process.env[key];
@@ -12,7 +14,7 @@ const loadEnv = (key: string) => {
 };
 
 const config = {
-  postgresUri: loadEnv("DB_URI")
+  dbUri: loadEnv("DB_URI")
 };
 
 export default config;

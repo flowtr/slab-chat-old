@@ -6,13 +6,15 @@ import middiePlugin from "middie";
 import autoLoad from "fastify-autoload";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
-import dotenv from "dotenv";
 import { nanoid } from "nanoid";
-
-dotenv.config();
+import { MongoSteel } from "mongosteel";
+import config from "./config.js";
+import fs from "fs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+await MongoSteel.connect(config.dbUri);
 
 const app = fastify();
 
@@ -24,13 +26,15 @@ app.register(fastifySocketIO, {
   }
 });
 
-app.register(autoLoad, {
-  dir: join(__dirname, "plugins")
-});
+if (fs.existsSync(join(__dirname, "plugins")))
+  app.register(autoLoad, {
+    dir: join(__dirname, "plugins")
+  });
 
-/* app.register(autoLoad, {
-  dir: join(__dirname, "routes")
-}); */
+if (fs.existsSync(join(__dirname, "routes")))
+  app.register(autoLoad, {
+    dir: join(__dirname, "routes")
+  });
 
 app.ready((err) => {
   if (err) throw err;

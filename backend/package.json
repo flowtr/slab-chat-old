@@ -26,9 +26,9 @@
     "fastify-plugin": "^3.0.0",
     "fastify-socket.io": "^2.0.1",
     "middie": "^5.3.0",
+    "mongosteel": "^1.4.1",
     "nanoid": "^3.1.30",
     "nodemon": "^2.0.14",
-    "pg-promise": "^10.11.1",
     "tslog": "^3.2.2"
   }
 }
