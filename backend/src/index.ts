@@ -1,16 +1,17 @@
-import fastify from "fastify";
-import fastifyCors from "fastify-cors";
-import fastifySocketIO from "fastify-socket.io";
 import { logger } from "./logger.js";
-import middiePlugin from "middie";
-import autoLoad from "fastify-autoload";
-import { fileURLToPath } from "url";
-import { dirname, join } from "path";
-import { nanoid } from "nanoid";
 import { MongoSteel } from "mongosteel";
 import config from "./config.js";
-import fs from "fs";
-
+import fastifyCors from "fastify-cors";
+import fastify from "fastify";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
+import autoLoad from "fastify-autoload";
+import { existsSync } from "fs";
+/* import { tinyws, TinyWSRequest } from "tinyws";
+import type { WebSocket } from "ws";
+import { nanoid } from "nanoid";
+import { createId } from "./util/id.js";
+ */
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -18,35 +19,14 @@ await MongoSteel.connect(config.dbUri);
 
 const app = fastify();
 
-app.register(middiePlugin);
-app.register(fastifyCors);
-app.register(fastifySocketIO, {
-  cors: {
-    origin: "*"
-  }
-});
-
-if (fs.existsSync(join(__dirname, "plugins")))
-  app.register(autoLoad, {
-    dir: join(__dirname, "plugins")
-  });
-
-if (fs.existsSync(join(__dirname, "routes")))
-  app.register(autoLoad, {
+if (existsSync(join(__dirname, "routes")))
+  await app.register(autoLoad, {
     dir: join(__dirname, "routes")
   });
 
-app.ready((err) => {
-  if (err) throw err;
-
-  app.io.on("connect", (socket) => {
-    const id = nanoid(36);
-
-    socket.emit("userInfo", { id });
-  });
-
-  logger.info(`Listening on :${port}`);
-});
+await app.register(fastifyCors, {});
 
 const port = parseInt(process.env.PORT ?? "8080");
-app.listen(port);
+app.listen(port, () => {
+  logger.info(`Listening on :${port}`);
+});

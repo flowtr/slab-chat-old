@@ -4,7 +4,7 @@ import { Friends } from "./Friends";
 import { Route, Router } from "wouter";
 import { FunctionComponent } from "preact";
 
-export const Dashboard: FunctionComponent<{ id: string }> = ({ id }) => (
+export const Dashboard: FunctionComponent = () => (
   <div className="w-full h-full">
     <Sidebar />
     <div className="flex flex-col min-h-screen min-w-max ml-16 text-white bg-gray-800">
@@ -17,9 +17,6 @@ export const Dashboard: FunctionComponent<{ id: string }> = ({ id }) => (
             <Friends />
           </Route>
         </Router>
-      </div>
-      <div className="p-2 text-sm px-16 py-8">
-        Your Id: <span className="text-gray-400">{id}</span>
       </div>
     </div>
   </div>

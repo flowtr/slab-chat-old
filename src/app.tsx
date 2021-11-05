@@ -1,26 +1,25 @@
-import { Router, Route } from "wouter";
-import { useEffect, useState } from "preact/hooks";
-import { Login } from "./components/Login";
-import { useLocalStorage } from "./lib/storage";
+import { Router, Route, Redirect } from "wouter";
+import { Login } from "./pages/Login";
 import { Dashboard } from "./components/Dashboard";
-import { socket } from "./lib/api";
+import { observer } from "mobx-react-lite";
+import type { tokenStore } from "@stores/tokenStore";
+import { FC } from "preact/compat";
+import { ToastContainer } from "react-toastify";
 
-export const App = () => {
-  const [id, setId] = useLocalStorage<string | null>("id", () => null);
-
-  socket.on("userInfo", ({ id }: { id: string }) => {
-    setId(id);
-  });
-
-  return (
+export const App: FC<{ tokens: typeof tokenStore }> = observer(
+  ({ tokens }: { tokens: typeof tokenStore }) => (
     <Router>
-      {id ? (
-        <Dashboard id={id} />
+      <ToastContainer />
+      <Route path="/">
+        <Redirect to="/login" />
+      </Route>
+      {tokens.token ? (
+        <Dashboard />
       ) : (
-        <Route path="/">
-          <Login onSubmit={({ id }) => setId(id)} />
+        <Route path="/login">
+          <Login />
         </Route>
       )}
     </Router>
-  );
-};
+  )
+);

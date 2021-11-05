@@ -1,6 +1,9 @@
 import { logger } from "./logger.js";
 import dotenv from "dotenv";
-dotenv.config();
+
+dotenv.config({
+  path: `../.env.${process.env.NODE_ENV}`
+});
 
 const loadEnv = (key: string) => {
   const envVar = process.env[key];
@@ -14,7 +17,8 @@ const loadEnv = (key: string) => {
 };
 
 const config = {
-  dbUri: loadEnv("DB_URI")
+  dbUri: loadEnv("DB_URI"),
+  jwtSecret: loadEnv("JWT_SECRET")
 };
 
 export default config;
