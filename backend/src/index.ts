@@ -27,6 +27,6 @@ if (existsSync(join(__dirname, "routes")))
 await app.register(fastifyCors, {});
 
 const port = parseInt(process.env.PORT ?? "8080");
-app.listen(port, () => {
+app.listen(port, "0.0.0.0", () => {
   logger.info(`Listening on :${port}`);
 });

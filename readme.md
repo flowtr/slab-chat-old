@@ -16,9 +16,10 @@ git clone https://github.com/flowtr/slab-chat.git slab
 cd slab
 git checkout next # use this branch
 ```
-You then can copy `.env.example` into `.env` and edit any needed values.
+You then can copy `docker-compose.example.yml` into `docker-compose.yml` and edit any needed values.
 Start Slab Chat with:
 ```bash
+docker-compose build
 docker-compose up -d
 ```
 

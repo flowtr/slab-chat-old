@@ -1,5 +1,8 @@
 FROM creepinson/alpine-pnpm as build
 
+ARG API_URI
+ENV API_URI=$API_URI
+
 WORKDIR /app
 COPY . .
 RUN pnpm install

@@ -16,4 +16,4 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: npm i -g pnpm
       - run: pnpm install && cd backend && pnpm install && cd ..
-      - run: pnpm run test
+      - run: pnpm run lint

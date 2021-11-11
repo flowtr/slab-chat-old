@@ -8,7 +8,8 @@
         "serve": "vite preview",
         "start": "cross-env NODE_ENV=production sirv -D -C dist",
         "postinstall": "husky install",
-        "lint": "eslint src/**/*.tsx --fix && eslint backend/src/**/*.ts",
+        "lint": "eslint src/**/*.tsx && eslint backend/src/**/*.ts",
+        "lint:fix": "eslint --fix src/**/*.tsx && eslint --fix backend/src/**/*.ts",
         "test": "jest"
     },
     "dependencies": {
