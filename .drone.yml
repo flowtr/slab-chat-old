@@ -1,0 +1,11 @@
+kind: pipeline
+name: default
+type: docker
+
+steps:
+  - name: lint
+    image: node:16-alpine
+    commands:
+      - npm i -g pnpm
+      - pnpm install
+      - pnpm run lint
