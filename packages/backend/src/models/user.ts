@@ -19,13 +19,13 @@ export class User {
     nullable: false,
     type: "text"
   })
-  username: string = "";
+  username = "";
 
   @Column({
     nullable: false,
     type: "text"
   })
-  password: string = "";
+  password = "";
 
   @Column({
     nullable: false,

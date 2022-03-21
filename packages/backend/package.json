@@ -9,7 +9,9 @@
     "test": "jest",
     "dev": "cross-env NODE_ENV=development nodemon",
     "start": "cross-env NODE_ENV=production node .",
-    "build": "cross-env NODE_ENV=production tsc -b"
+    "build": "cross-env NODE_ENV=production tsc -b",
+    "lint": "eslint 'src/**/*.ts' && prettier 'src/**/*.ts'",
+    "lint:fix": "eslint --fix 'src/**/*.ts' && prettier --write src/**/*.ts"
   },
   "keywords": [],
   "author": "",

@@ -5,10 +5,10 @@ export const tokenStore = observable({
 });
 
 intercept(tokenStore, "token", (change) => {
-  if (!change.newValue) {
+  if (!change.newValue) 
     // Ignore attempts to unset the background color.
     return null;
-  }
+  
 
   localStorage.setItem("token", change.newValue);
 

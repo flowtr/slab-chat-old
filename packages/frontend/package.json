@@ -7,8 +7,8 @@
     "build": "cross-env NODE_ENV=production tsc --noEmit && vite build",
     "serve": "vite preview",
     "start": "cross-env NODE_ENV=production sirv -D -C dist",
-    "lint": "eslint src/**/*.tsx && eslint backend/src/**/*.ts",
-    "lint:fix": "eslint --fix src/**/*.tsx && eslint --fix backend/src/**/*.ts",
+    "lint": "eslint 'src/**/*.{ts,tsx}' && prettier 'src/**/*.{ts,tsx}'",
+    "lint:fix": "eslint --fix 'src/**/*.{ts,tsx}' && prettier --write src/**/*.tsx",
     "test": "jest"
   },
   "dependencies": {
