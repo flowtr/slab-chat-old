@@ -1,7 +1,7 @@
-import { tokenStore } from "@stores/tokenStore";
+import { tokenStore } from "@/stores/tokenStore";
 import { render } from "preact";
 import { App } from "./app";
-import "./index.css";
+import "virtual:windi.css";
 import "react-toastify/dist/ReactToastify.css";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";

@@ -4,7 +4,7 @@ type: docker
 
 steps:
   - name: lint
-    image: node:16-alpine
+    image: docker.io/node:current-alpine
     commands:
       - npm i -g pnpm
       - pnpm install

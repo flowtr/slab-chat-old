@@ -1,7 +1,7 @@
-import { tokenStore } from "@stores/tokenStore";
+import { tokenStore } from "@/stores/tokenStore";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
-import { api } from "../lib/api";
+import { api } from "@/lib/api";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faX } from "@fortawesome/free-solid-svg-icons";
 

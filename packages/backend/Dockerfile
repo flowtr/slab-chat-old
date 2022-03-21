@@ -1,4 +1,4 @@
-FROM creepinson/alpine-pnpm
+FROM docker.io/creepinson/alpine-pnpm
 
 WORKDIR /app
 COPY . .
