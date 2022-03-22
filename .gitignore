@@ -9,4 +9,4 @@ dist-ssr
 data/
 docker-compose.yml
 .turbo
-ormconfig.json
+config.toml

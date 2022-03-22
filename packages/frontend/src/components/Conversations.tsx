@@ -24,7 +24,15 @@ export const Conversations = () => {
         New Conversation
       </button>
       <Modal
-        header={<h4>Create Conversation</h4>}
+        header="Create Conversation"
+        footer={
+          <button
+            className="bg-green-700 hover:bg-green-800 text-white font-bold px-4 py-2 mr-auto rounded"
+            type="submit"
+          >
+            Create
+          </button>
+        }
         closeButton
         isOpen={modalOpen}
         setIsOpen={setModalOpen}
@@ -33,20 +41,14 @@ export const Conversations = () => {
           className="flex flex-col justify-start items-start"
           onSubmit={handleSubmit(submitHandler)}
         >
-          <span className="text-gray-400 mb-2">Username</span>
           <input
-            className="input bg-gray-900 border border-gray-400 appearance-none rounded w-full px-3 py-2 mb-4 focus focus:border-indigo-600 focus:outline-none active:outline-none active:border-indigo-600"
+            className="input bg-gray-900 border border-gray-400 appearance-none rounded w-full px-3 py-2 mb-4 focus focus:border-green-600 focus:outline-none active:outline-none active:border-indigo-600"
             {...register("username")}
+            placeholder="Username"
           />
           {errors.username && (
             <p className="text-red-600 mb-4">{errors.username.message}</p>
           )}
-          <button
-            className="bg-blue-800 hover:bg-blue-dark text-white font-bold py-3 px-6 mb-4 rounded"
-            type="submit"
-          >
-            Create
-          </button>
         </form>
       </Modal>
     </div>

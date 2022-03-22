@@ -113,6 +113,7 @@ importers:
       postcss: ^8.4.12
       preact: ^10.6.6
       react-hook-form: ^7.28.1
+      react-loading-skeleton: ^3.0.3
       react-query: ^3.34.16
       react-toastify: ^8.2.0
       sirv-cli: ^2.0.2
@@ -123,7 +124,7 @@ importers:
       vite-tsconfig-paths: ^3.4.1
       websocket-ts: ^1.1.1
       windicss: ^3.5.1
-      wouter: ^2.7.5
+      wouter-preact: ^2.8.0-alpha.2
       zod: ^3.14.2
     dependencies:
       '@fortawesome/fontawesome-svg-core': 6.1.0
@@ -136,10 +137,11 @@ importers:
       nanoid: 3.3.1
       preact: 10.6.6
       react-hook-form: 7.28.1
+      react-loading-skeleton: 3.0.3
       react-query: 3.34.16
       react-toastify: 8.2.0
       websocket-ts: 1.1.1
-      wouter: 2.7.5
+      wouter-preact: 2.8.0-alpha.2_preact@10.6.6
       zod: 3.14.2
     devDependencies:
       '@preact/preset-vite': 2.1.7_preact@10.6.6+vite@2.8.6
@@ -5563,6 +5565,12 @@ packages:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
     dev: true
 
+  /react-loading-skeleton/3.0.3:
+    resolution: {integrity: sha512-HPkEqQGwmbg1ImcYA9n4hDiLC3u92xUdU+sSfrv/9l3lNBChAubcl1azjV2WakapdkbA3gko+hPzZkZGIb/9xA==}
+    peerDependencies:
+      react: '>=16.8.0'
+    dev: false
+
   /react-query/3.34.16:
     resolution: {integrity: sha512-7FvBvjgEM4YQ8nPfmAr+lJfbW95uyW/TVjFoi2GwCkF33/S8ajx45tuPHPFGWs4qYwPy1mzwxD4IQfpUDrefNQ==}
     peerDependencies:
@@ -7039,10 +7047,12 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /wouter/2.7.5:
-    resolution: {integrity: sha512-TOI9gD1wa7a8wW+lh3rjg0C+MjYGKMV3eC+++6D+7n1z36ZJIBPWe2G9Hs1jYNPsV7oKiPTI3UFC5TGhZjQfrQ==}
+  /wouter-preact/2.8.0-alpha.2_preact@10.6.6:
+    resolution: {integrity: sha512-f19qDB+HhR6C3lnPFdsJQ8wZZIFzm0m8XciEiBzyB1VtkPE/QaSrm1dxcvqrZu1hKaUA/gdee6OGGj0jGDtgGA==}
     peerDependencies:
-      react: '>=16.8.0'
+      preact: ^10.0.0
+    dependencies:
+      preact: 10.6.6
     dev: false
 
   /wrap-ansi/7.0.0:

@@ -1,5 +1,4 @@
 import { ComponentChild } from "preact";
-import { useLocation } from "wouter";
 
 export interface NavKey {
   key: string;

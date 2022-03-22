@@ -4,11 +4,11 @@
   "description": "",
   "private": true,
   "type": "module",
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "test": "jest",
     "dev": "cross-env NODE_ENV=development nodemon",
-    "start": "cross-env NODE_ENV=production node .",
+    "start": "cross-env NODE_ENV=production node ./dist/index.js",
     "build": "cross-env NODE_ENV=production tsc -b",
     "lint": "eslint 'src/**/*.ts' && prettier 'src/**/*.ts'",
     "lint:fix": "eslint --fix 'src/**/*.ts' && prettier --write src/**/*.ts"

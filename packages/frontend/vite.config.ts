@@ -8,7 +8,9 @@ export default defineConfig({
   plugins: [preact(), tsconfigPaths(), windicss()],
   resolve: {
     alias: {
-      "@/": "src/"
+      "@/": "src/",
+      react: "preact/compat",
+      "react-dom": "preact/compat"
     }
   }
 });
